@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>en_US</language>
+  <module_name>ishne</module_name>
+  <chapter>ishne</chapter>
+  <chapter_description>
+    <p>Read and write ISHNE 1.0 Holter ECG files.</p>
+    <p>The ISHNE 1.0 Holter standard output file format is the interchange format Holter ECG systems read and write: an eight-byte magic 'ISHNE1.0', a two-byte CRC, a 512-byte fixed header, a variable text block, then signed 16-bit little-endian samples interleaved by lead, each lead with its own resolution in nanovolts per step so a physical millivolt is raw * resolution / 1e6. This module owns the binary format in one place and returns a domain-free struct, so a reader that gets the header arithmetic, the little-endian samples or the per-lead resolution wrong cannot return a signal that looks plausible and is wrong. It is designed to be a dependency of higher-level toolboxes such as ecglab rather than to interpret the signals itself.</p>
+  </chapter_description>
+</xmldoc>

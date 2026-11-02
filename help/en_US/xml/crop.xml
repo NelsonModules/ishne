@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>en_US</language>
+  <keyword>ishne.crop</keyword>
+  <short_description>Keep only a time window of an ISHNE record.</short_description>
+  <syntax>
+    <syntax_item>r = ishne.crop(r, [t0 t1])</syntax_item>
+    <syntax_item>r = ishne.crop(r, [i j], 'Samples', true)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>r</param_name>
+      <param_description>a struct from ishne.read.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>[t0 t1]</param_name>
+      <param_description>the window in seconds, the second value greater than the first.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>[i j]</param_name>
+      <param_description>with 'Samples', true, the window as sample indices (one based, inclusive) instead of seconds.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>r</param_name>
+      <param_description>the struct cut to the window.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>Keeps only the window of the struct from ishne.read. All leads of an ISHNE file share one rate, so the cut falls on the same instant on every lead.</p>
+    <p>With <b>'Samples', true</b> the window is read as sample indices rather than seconds.</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[r = ishne.read('holter.ecg');
+% Keep minute two to minute five.
+r = ishne.crop(r, [120 300]);]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.select">ishne.select</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

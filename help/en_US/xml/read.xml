@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>en_US</language>
+  <keyword>ishne.read</keyword>
+  <short_description>Read an ISHNE 1.0 Holter ECG file into the neutral struct.</short_description>
+  <syntax>
+    <syntax_item>r = ishne.read(file)</syntax_item>
+    <syntax_item>r = ishne.read(file, 'Physical', true)</syntax_item>
+    <syntax_item>r = ishne.read(file, 'Leads', which)</syntax_item>
+    <syntax_item>r = ishne.read(file, 'Data', false)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>file</param_name>
+      <param_description>the path to the ISHNE 1.0 Holter file.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>which</param_name>
+      <param_description>with 'Leads', the leads to keep, by name (a char or a cellstr) or by index, in the order asked; by default every lead.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>tf</param_name>
+      <param_description>a logical: 'Physical' whether to return the samples in millivolts rather than the raw integers (false by default), 'Data' whether to read the samples at all (true by default).</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>r</param_name>
+      <param_description>the neutral struct with the fields kind, path, samples (N x L), leadCount, leadCodes, leadNames, resolution, leadQuality, samplingRate, version, sampleCount, checksum, header (firstName, lastName, id, sex, race, birthDate, recordDate, fileDate, startTime, pacemaker, recorder), variableBlock and variableText.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>The one reader of the ISHNE 1.0 Holter ECG binary format. It returns a domain-free struct: nothing in it assumes a diagnosis or any other interpretation.</p>
+    <p>An ISHNE file opens with the eight-byte magic 'ISHNE1.0' and a two-byte CRC, then a 512-byte fixed header, a variable text block, and the samples as signed 16-bit little-endian integers interleaved by lead. The whole file is read in one pass and every field cut from its bytes, because a misread of the little-endian samples or the per-lead resolution gives a signal that looks plausible and is wrong.</p>
+    <p>By default <b>r.samples</b> holds the raw signed integers the file carries, so a read followed by ishne.write is lossless to the bit. With <b>'Physical', true</b> the samples are returned in millivolts, raw * resolution / 1e6, the resolution being the nanovolts per least significant bit each lead stores.</p>
+  </description>
+  <used_function />
+  <bibliography>Badilini, The ISHNE Holter standard output file format, Annals of Noninvasive Electrocardiology 3(3), 1998.</bibliography>
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[r = ishne.read('holter.ecg', 'Physical', true);
+plot((0:size(r.samples, 1) - 1) / r.samplingRate, r.samples(:, 1));]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.write">ishne.write</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.header">ishne.header</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.frombytes">ishne.frombytes</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

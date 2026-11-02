@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>en_US</language>
+  <keyword>ishne.tobytes</keyword>
+  <short_description>Serialise an ISHNE record to bytes without writing to disk.</short_description>
+  <syntax>
+    <syntax_item>bytes = ishne.tobytes(r)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>r</param_name>
+      <param_description>the neutral struct to serialise, from ishne.read or built by hand.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>bytes</param_name>
+      <param_description>the bytes of a valid ISHNE file.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>Serialises the neutral struct into the bytes of a valid ISHNE file without writing to disk, for a caller that will send the recording over a stream or keep it in a blob. It is the inverse of ishne.frombytes.</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[bytes = ishne.tobytes(r);
+back = ishne.frombytes(bytes);]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.write">ishne.write</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.frombytes">ishne.frombytes</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

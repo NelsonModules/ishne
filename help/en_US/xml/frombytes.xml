@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>en_US</language>
+  <keyword>ishne.frombytes</keyword>
+  <short_description>Parse an ISHNE recording already in memory.</short_description>
+  <syntax>
+    <syntax_item>r = ishne.frombytes(bytes)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>bytes</param_name>
+      <param_description>a numeric vector of the file's bytes.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>r</param_name>
+      <param_description>the same neutral struct ishne.read returns, with an empty path.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>For a recording fetched over a stream or held in a blob rather than sitting on disk. It parses the bytes directly into the same neutral struct ishne.read returns. It is the inverse of ishne.tobytes.</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[bytes = ishne.tobytes(r);
+back = ishne.frombytes(bytes);]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.tobytes">ishne.tobytes</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

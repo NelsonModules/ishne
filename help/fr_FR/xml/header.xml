@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>fr_FR</language>
+  <keyword>ishne.header</keyword>
+  <short_description>Lire uniquement l'en-tete d'un fichier ISHNE.</short_description>
+  <syntax>
+    <syntax_item>r = ishne.header(file)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>file</param_name>
+      <param_description>le chemin du fichier ISHNE.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>r</param_name>
+      <param_description>la meme structure neutre que renvoie ishne.read, mais sans echantillons.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>Lit uniquement l'en-tete d'un fichier ISHNE, de sorte que les voies, leurs resolutions et les metadonnees de l'enregistrement peuvent etre inspectees a peu de frais, sans lire les echantillons. C'est le raccourci de ishne.read(file, 'Data', false).</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[r = ishne.header('holter.ecg');
+disp(r.leadNames);]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.info">ishne.info</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

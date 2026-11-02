@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>fr_FR</language>
+  <keyword>ishne.crop</keyword>
+  <short_description>Garder uniquement une fenetre temporelle d'un enregistrement ISHNE.</short_description>
+  <syntax>
+    <syntax_item>r = ishne.crop(r, [t0 t1])</syntax_item>
+    <syntax_item>r = ishne.crop(r, [i j], 'Samples', true)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>r</param_name>
+      <param_description>une structure issue de ishne.read.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>[t0 t1]</param_name>
+      <param_description>la fenetre en secondes, la seconde valeur superieure a la premiere.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>[i j]</param_name>
+      <param_description>avec 'Samples', true, la fenetre en indices d'echantillons (base un, inclusifs) au lieu de secondes.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>r</param_name>
+      <param_description>la structure coupee a la fenetre.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>Garde uniquement la fenetre de la structure issue de ishne.read. Toutes les voies d'un fichier ISHNE partagent une seule frequence, de sorte que la coupe tombe au meme instant sur chaque voie.</p>
+    <p>Avec <b>'Samples', true</b> la fenetre est lue en indices d'echantillons plutot qu'en secondes.</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[r = ishne.read('holter.ecg');
+% Garder de la minute deux a la minute cinq.
+r = ishne.crop(r, [120 300]);]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.select">ishne.select</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

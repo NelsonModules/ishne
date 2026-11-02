@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>fr_FR</language>
+  <keyword>ishne.write</keyword>
+  <short_description>Ecrire la structure neutre dans un fichier Holter ECG ISHNE 1.0.</short_description>
+  <syntax>
+    <syntax_item>ishne.write(file, r)</syntax_item>
+    <syntax_item>ishne.write(file, samples, rate)</syntax_item>
+    <syntax_item>ishne.write(file, samples, rate, 'Leads', names)</syntax_item>
+    <syntax_item>ishne.write(file, samples, rate, 'Resolution', res)</syntax_item>
+    <syntax_item>ishne.write(file, samples, rate, 'Physical', true)</syntax_item>
+    <syntax_item>info = ishne.write(...)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>file</param_name>
+      <param_description>le chemin du fichier a ecrire.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>r</param_name>
+      <param_description>une structure issue de ishne.read, ou construite a la main avec les memes champs.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>samples</param_name>
+      <param_description>une matrice numerique, une colonne par voie.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>rate</param_name>
+      <param_description>la frequence d'echantillonnage en hertz, un nombre positif.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>names</param_name>
+      <param_description>avec 'Leads', un nom de voie par colonne ; par defaut lead1, lead2 et ainsi de suite.</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>res</param_name>
+      <param_description>avec 'Resolution', les nanovolts par pas, une valeur ou une par voie (par defaut 1000, un microvolt par pas).</param_description>
+    </param_input_item>
+    <param_input_item>
+      <param_name>tf</param_name>
+      <param_description>avec 'Physical', un logique indiquant que SAMPLES est en millivolts et est quantifie avec la resolution ; par defaut SAMPLES est les entiers bruts que le fichier stocke.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>info</param_name>
+      <param_description>ce qui a ete ecrit : le nombre de voies, le nombre d'echantillons, la frequence et le fichier ecrit.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>Le seul redacteur du format binaire Holter ECG ISHNE 1.0. Il depose un fichier que tout outil peut lire et que ce module relit. A partir d'une structure issue de ishne.read avec des echantillons entiers bruts, ce qui est relu est egal a ce qui est entre, au bit pres, somme de controle comprise.</p>
+    <p>Recevant une simple matrice avec une frequence au lieu d'une structure, il remplit l'en-tete avec des valeurs par defaut et nomme les voies lead1, lead2 et ainsi de suite a moins que 'Leads' ne les nomme. Avec <b>'Physical', true</b> les millivolts sont quantifies vers l'entier brut que le fichier contient, brut = round(mV * 1e6 / resolution).</p>
+  </description>
+  <used_function />
+  <bibliography>Badilini, The ISHNE Holter standard output file format, Annals of Noninvasive Electrocardiology 3(3), 1998.</bibliography>
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[samples = round(1000 * sin(2 * pi * (0:2499)' / 250));
+ishne.write('out.ecg', samples, 250, 'Leads', {'I'});]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.tobytes">ishne.tobytes</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

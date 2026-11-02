@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>fr_FR</language>
+  <keyword>ishne.validate</keyword>
+  <short_description>Verifier un fichier ISHNE pour les defauts qu'un lecteur ne peut pas voir.</short_description>
+  <syntax>
+    <syntax_item>report = ishne.validate(file)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>file</param_name>
+      <param_description>le chemin a verifier.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>report</param_name>
+      <param_description>une structure avec ok (vrai quand rien n'est faux) et issues (un cellstr de ce qui l'est).</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>Il verifie les defauts qu'un lecteur ne peut pas voir autrement : une signature magique manquante, un fichier trop court pour son en-tete, un nombre de voies hors limites, et un en-tete dont le CRC stocke ne correspond pas a celui calcule sur lui. Le CRC est la propre protection du format contre un en-tete corrompu sur le disque, et c'est le seul endroit ou il est verifie.</p>
+    <p>Une somme de controle stockee a zero est lue comme "aucune calculee" et n'est pas retenue contre le fichier.</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[report = ishne.validate('suspect.ecg');
+if ~report.ok
+  disp(report.issues);
+end]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.header">ishne.header</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

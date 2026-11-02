@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>fr_FR</language>
+  <keyword>ishne.info</keyword>
+  <short_description>Afficher un resume lisible d'un fichier ISHNE.</short_description>
+  <syntax>
+    <syntax_item>ishne.info(file)</syntax_item>
+    <syntax_item>text = ishne.info(file)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>file</param_name>
+      <param_description>le chemin du fichier ISHNE.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>text</param_name>
+      <param_description>le resume sous forme de texte, renvoye au lieu d'etre affiche quand une sortie est demandee.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>Affiche un court resume d'un fichier ISHNE : sa frequence, les noms de ses voies et leurs resolutions, et les metadonnees de l'enregistrement (identifiant, heure de debut, date d'enregistrement, enregistreur et toute note du bloc de texte variable). Il ne lit que l'en-tete, il est donc peu couteux sur un grand enregistrement.</p>
+    <p>Avec un argument de sortie, le resume est renvoye sous forme de texte au lieu d'etre affiche.</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[ishne.info('holter.ecg');]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.header">ishne.header</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>en_US</language>
+  <keyword>ishne.info</keyword>
+  <short_description>Print a human-readable summary of an ISHNE file.</short_description>
+  <syntax>
+    <syntax_item>ishne.info(file)</syntax_item>
+    <syntax_item>text = ishne.info(file)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>file</param_name>
+      <param_description>the path to the ISHNE file.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>text</param_name>
+      <param_description>the summary as text, returned instead of printed when an output is asked.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>Prints a short summary of an ISHNE file: its rate, its lead names and resolutions, and the recording's metadata (identifier, start time, record date, recorder and any notes from the variable text block). It reads only the header, so it is cheap on a large recording.</p>
+    <p>With an output argument the summary is returned as text rather than printed.</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[ishne.info('holter.ecg');]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.header">ishne.header</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

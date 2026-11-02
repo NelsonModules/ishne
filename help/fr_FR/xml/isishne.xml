@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>fr_FR</language>
+  <keyword>ishne.isishne</keyword>
+  <short_description>Sonder un fichier pour le format ISHNE 1.0.</short_description>
+  <syntax>
+    <syntax_item>tf = ishne.isishne(file)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>file</param_name>
+      <param_description>le chemin a sonder.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>tf</param_name>
+      <param_description>vrai quand le fichier commence par la signature magique ISHNE1.0 et est assez long pour contenir l'en-tete fixe, faux sinon.</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>Il ne lit que les premiers octets et ne leve jamais d'erreur sur un fichier qui n'est pas un enregistrement ISHNE, de sorte qu'on peut l'interroger sur n'importe quel chemin avant une lecture.</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[if ishne.isishne('mystery.dat')
+  r = ishne.read('mystery.dat');
+end]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.header">ishne.header</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>

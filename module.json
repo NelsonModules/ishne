@@ -1,0 +1,30 @@
+{
+    "module":"ishne",
+    "title":"ISHNE Holter toolbox",
+    "summary":"Read and write ISHNE Holter ECG signal files.",
+    "version":"1.0.0",
+    "description":"A toolbox that owns the ISHNE Holter ECG binary format and returns a domain-free struct. Read and write signals, inspect and validate headers (with a CRC-CCITT checksum), select leads, crop a window, and work from bytes in memory. Designed to be a dependency of higher-level toolboxes such as ecglab.",
+    "authors":[
+        "Allan CORNET"
+    ],
+    "keywords":[
+        "ishne",
+        "holter",
+        "ecg",
+        "biosignal",
+        "ambulatory"
+    ],
+    "license":"LGPL-3.0-or-later",
+    "repository":"https://github.com/NelsonModules/ishne",
+    "homepage":"https://github.com/NelsonModules/ishne",
+    "issues":"https://github.com/NelsonModules/ishne/issues",
+    "documentation":"https://github.com/NelsonModules/ishne#readme",
+    "builtin":false,
+    "platforms":[
+        "all"
+    ],
+    "nelson":">=2.0.0",
+    "dependencies":{
+
+    }
+}

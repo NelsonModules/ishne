@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xmldoc>
+  <copyright>SAME AS NELSON SOFTWARE</copyright>
+  <language>en_US</language>
+  <keyword>ishne.validate</keyword>
+  <short_description>Check an ISHNE file for the faults a reader cannot see.</short_description>
+  <syntax>
+    <syntax_item>report = ishne.validate(file)</syntax_item>
+  </syntax>
+  <param_input>
+    <param_input_item>
+      <param_name>file</param_name>
+      <param_description>the path to check.</param_description>
+    </param_input_item>
+  </param_input>
+  <param_output>
+    <param_output_item>
+      <param_name>report</param_name>
+      <param_description>a struct with ok (true when nothing is wrong) and issues (a cellstr of what is).</param_description>
+    </param_output_item>
+  </param_output>
+  <description>
+    <p>It checks the faults a reader cannot otherwise see: a missing magic, a file too short for its header, a lead count out of range, and a header whose stored CRC does not match the one computed over it. The CRC is the format's own guard against a header corrupted on disk, and this is the one place it is verified.</p>
+    <p>A stored checksum of zero is read as "none computed" and is not held against the file.</p>
+  </description>
+  <used_function />
+  <bibliography />
+  <examples>
+    <example_item>
+      <example_item_type>nelson</example_item_type>
+      <example_item_description />
+      <example_item_data><![CDATA[report = ishne.validate('suspect.ecg');
+if ~report.ok
+  disp(report.issues);
+end]]></example_item_data>
+    </example_item>
+  </examples>
+  <see_also>
+    <see_also_item>
+      <link linkend="${ishne}ishne.read">ishne.read</link>
+    </see_also_item>
+    <see_also_item>
+      <link linkend="${ishne}ishne.header">ishne.header</link>
+    </see_also_item>
+  </see_also>
+  <history>
+    <history_item>
+      <history_version>1.0.0</history_version>
+      <history_description>initial version</history_description>
+    </history_item>
+  </history>
+  <authors>
+    <author_item>Allan CORNET</author_item>
+  </authors>
+</xmldoc>
